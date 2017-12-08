@@ -5,10 +5,50 @@
   grid-row-end: $row-end;
 }
 
-.grid-container {
+.hour-0 {
+  @include pixel-definition(1, 4, 1, 8)
+}
+
+.hour-1 {
+  @include pixel-definition(5, 8, 1, 8)
+}
+
+.separator--hours-minutes {
+  @include pixel-definition(9, 10, 1, 8)
+}
+
+.minute-0 {
+  @include pixel-definition(11, 14, 1, 8)
+}
+
+.minute-1 {
+  @include pixel-definition(15, 18, 1, 8)
+}
+
+.separator--minutes-seconds {
+  @include pixel-definition(19, 20, 1, 8)
+}
+
+.second-0 {
+  @include pixel-definition(21, 24, 1, 8)
+}
+
+.second-1 {
+  @include pixel-definition(25, 28, 1, 8)
+}
+
+.separator {
   display: grid;
-  grid-template-columns:repeat(3, 50px);
-  grid-template-rows: repeat(7, 50px);
+  grid-template-columns:repeat(1, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  grid-column-gap: 1px;
+  grid-row-gap: 1px;
+}
+
+.number {
+  display: grid;
+  grid-template-columns:repeat(3, 1fr);
+  grid-template-rows: repeat(7, 1fr);
   grid-column-gap: 1px;
   grid-row-gap: 1px;
   .pixel-1-1 {

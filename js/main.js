@@ -1,32 +1,23 @@
-function removeClass() {
-  $(".number").removeClass (function (index, className) {
-    return (className.match (/\bnumber-\S+/g) || []).join(' ');
-  });
-}
+(function() {
+  "use strict";
 
-function addTime( elementClass, digitsType ) {
-  if ( digitsType.length === 2 ) {
-    $("" + elementClass +"0").addClass("number-" + digitsType[0]);
-    $("" + elementClass +"1").addClass("number-" + digitsType[1]);
-  } else {
-    $("" + elementClass +"0").addClass("number-0");
-    $("" + elementClass +"1").addClass("number-" + digitsType[0]);
+  function addTime(elementClass, digitsType) {
+    // Convert to string to know str length
+    digitsType = digitsType.toString();
+    // add zero padding if < 0
+    digitsType = ("00" + digitsType).substring(digitsType.length);
+
+    $(elementClass + "0").attr("data-number", digitsType[0]);
+    $(elementClass + "1").attr("data-number", digitsType[1]);
   }
-}
 
-(function pulse() {
+  function pulse() {
+    var d = new Date();
+    addTime(".second-", d.getSeconds());
+    addTime(".minute-", d.getMinutes());
+    addTime(".hour-", d.getHours());
+  }
 
-  var d = new Date();
-  var digitsSeconds = d.getSeconds().toString();
-  var digitsMinutes = d.getMinutes().toString();
-  var digitsHours = d.getHours().toString();
-
-  removeClass();
-
-  addTime(".second-", digitsSeconds);
-  addTime(".minute-", digitsMinutes);
-  addTime(".hour-", digitsHours);
-
-  setTimeout(pulse, 1000);
-
+  pulse();
+  setInterval(pulse, 1000);
 })();

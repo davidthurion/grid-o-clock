@@ -1,5 +1,47 @@
+.pixel {
+  position: relative;
+  &:before,
+  &:after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  &:nth-child(even) {
+    &:before,
+    &:after {
+      transition: all ease-in-out .3s;
+    }
+  }
+  &:nth-child(odd) {
+    &:before,
+    &:after {
+      transition: all ease-in-out .2s;
+    }
+  }
+  &:before {
+    background:rgb(21, 21, 21);
+    transform: rotateX(0);
+  }
+  &:after {
+    background: white;
+    transform: rotateX(-180deg);
+    backface-visibility: hidden;
+  }
+}
+
 %full-pixel {
-  background: white;
+  &:before {
+    transform: rotateX(-180deg);
+    backface-visibility: hidden;
+  }
+  &:after {
+    transform: rotateX(0);
+    backface-visibility: visible;
+  }
 }
 
 [data-number="0"] {

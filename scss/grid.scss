@@ -1,3 +1,4 @@
+// Mixin for pixel positioning
 @mixin pixel-definition ($col-start, $col-end, $row-start, $row-end) {
   grid-column-start: $col-start;
   grid-column-end: $col-end;
@@ -5,6 +6,8 @@
   grid-row-end: $row-end;
 }
 
+
+// Area definition
 .hour-0 {
   @include pixel-definition(1, 4, 1, 8)
 }
@@ -37,6 +40,8 @@
   @include pixel-definition(25, 28, 1, 8)
 }
 
+
+// Grid for separator definition
 .separator {
   display: grid;
   grid-template-columns:repeat(1, 1fr);
@@ -45,6 +50,8 @@
   grid-row-gap: 1px;
 }
 
+
+// Grid for number
 .number {
   display: grid;
   grid-template-columns:repeat(3, 1fr);

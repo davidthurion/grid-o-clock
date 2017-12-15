@@ -139,7 +139,7 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background: black; }
+  background: pink; }
   body .clock-container {
     display: grid;
     width: calc((80vw / 27) * 27);
